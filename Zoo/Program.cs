@@ -1,56 +1,6 @@
 ﻿using Zoo;
 
-//CatAnimals catLeopold = new CatAnimals("кот", "повсеместно", 10, "корм для кошек и рыба", "хищник", "мяу", "Леопольд", 0.07, 2);
-//CatAnimals catVasya = new CatAnimals("кот", "повсеместно", 10, "корм для кошек и рыба", "хищник", "мяу", "Вася", 0.075, 3);
-
-//catLeopold.Eat("корм для кошек", 0.07);
-//catLeopold.CanDo();
-//catLeopold.Play("кот", "Вася");
-//catVasya.MakeASound();
-
-//Console.WriteLine();
-
-//PenguinAnimals penguinTolik = new PenguinAnimals("пингвин", "тундра", 10, "рыба", "хищник", "гргргр", "Толик", 0.3, 1);
-//PenguinAnimals penguinSimba = new PenguinAnimals("пингвин", "тундра", 10, "рыба", "хищник", "гргргр", "Симба", 0.35, 3);
-
-//penguinTolik.Eat("рыба", 0.4);
-//penguinTolik.CanDo();
-//penguinTolik.Play("пингвин", "Симба");
-//penguinSimba.MakeASound();
-
-//Console.WriteLine();
-
-//BearAnimals bearMasha = new BearAnimals("медведь", "лес", 50, "рыба, орехи, ягоды", "хищник", "арррр", "Маша", 5, 2);
-//BearAnimals bearMisha = new BearAnimals("медведь", "лес", 50, "рыба, орехи, ягоды", "хищник", "арррр", "Миша", 7, 4);
-
-//bearMasha.Eat("рыба", 4);
-//bearMasha.CanDo();
-//bearMasha.Play("пингвин", "Симба");
-//bearMisha.MakeASound();
-
-//Console.WriteLine();
-
-//ElephantAnimals elephantBorya = new ElephantAnimals("слон", "тропики", 70, "сено", "травоядный", "ауф", "Боря", 300, 5);
-//ElephantAnimals elephantMira = new ElephantAnimals("слон", "тропики", 70, "сено", "травоядный", "ауф", "Мира", 300, 4);
-
-//elephantBorya.Eat("сено", 301);
-//elephantBorya.CanDo();
-//elephantBorya.Play("слон", "Мира");
-//elephantMira.MakeASound();
-
-//Console.WriteLine();
-
-//BirdAnimals birdGosha = new BirdAnimals("попугай", "тропики", 10, "фрукты, корм для птиц", "травоядный", "чик-чирик", "Гоша", 0.03, 6);
-//BirdAnimals birdKesha = new BirdAnimals("воробей", "лес", 10, "фрукты, корм для птиц", "травоядный", "чик-чирик", "Кеша", 0.03, 2);
-
-//birdGosha.Eat("фрукты", 0.03);
-//birdGosha.CanDo();
-//birdGosha.Play("воробей", "Кеша");
-//birdKesha.MakeASound();
-
-
-
-Aviary bigAviary = new Aviary("вольер для слонов", "тропики", 1000);
+Aviary bigAviary = new Aviary("для слонов", "тропики", 500);
 
 ElephantAnimals[] elephant =  new ElephantAnimals[2];
 
@@ -59,14 +9,45 @@ elephant[1] = new ElephantAnimals("слон", "тропики", 70, "сено", 
 
 bigAviary.ListAnimals(elephant);
 
-ElephantAnimals elephantFaina = new ElephantAnimals("слон", "тропики", 70, "сено", "травоядный", "ауф", "Фаина", 300, 4);
+ElephantAnimals elephantFaina = new ElephantAnimals("слон", "тропики", 70, "сено", "травоядный", "аууф", "Фаина", 300, 4);
+
+AbstractAnimals[] newElephant;
+newElephant = bigAviary.PlusAnimal(elephant, elephantFaina);
+
+ElephantAnimals elephantDoby = new ElephantAnimals("слон", "тропики", 70, "сено", "травоядный", "ауууф", "Доби", 250, 1);
+
+AbstractAnimals[] new2Elephant;
+new2Elephant = bigAviary.PlusAnimal(newElephant, elephantDoby);
+
+AbstractAnimals[] new3Elephant;
+new3Elephant = bigAviary.MinusAnimal(new2Elephant, elephantFaina);
+bigAviary.ListAnimals(new3Elephant);
+
+bigAviary.FeedAnimals(new3Elephant, 800, "сено");
+
+bigAviary.MakeASoundAllAnimals(new3Elephant);
 
 
-AbstractAnimals[] x = new ElephantAnimals[5];
 
-x = bigAviary.PlusAnimal(bigAviary, elephant, elephantFaina);
+Aviary penguinAviary = new Aviary("для пингвинов", "тундра", 50);
 
-bigAviary.ListAnimals(elephant);
+PenguinAnimals[] penguin = new PenguinAnimals[3];
+
+penguin[0] = new PenguinAnimals("пингвин", "тундра", 10, "рыба", "хищник", "гргргр", "Толик", 0.3, 1);
+penguin[1] = new PenguinAnimals("пингвин", "тундра", 10, "рыба", "хищник", "гргр", "Симба", 0.35, 3);
+penguin[2] = new PenguinAnimals("пингвин", "тундра", 10, "рыба", "хищник", "гргргр", "Руби", 0.4, 3);
+
+penguinAviary.ListAnimals(penguin);
+
+PenguinAnimals penguinSonya = new PenguinAnimals("пингвин", "тундра", 10, "рыба", "хищник", "гр", "Соня", 0.3, 2);
+
+AbstractAnimals[] newPenguin;
+newPenguin = penguinAviary.PlusAnimal(penguin, penguinSonya);
 
 
-//bigAviary.MinusAnimal(bigAviary, elephant, elephantFaina);
+AbstractAnimals[] new2Penguin;
+new2Penguin = penguinAviary.MinusAnimal(newPenguin, penguin[0]);
+
+penguinAviary.FeedAnimals(new2Penguin, 1.15, "рыба");
+
+penguinAviary.MakeASoundAllAnimals(new2Penguin);
