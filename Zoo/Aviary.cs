@@ -25,17 +25,11 @@ namespace Zoo
         {
             string temp = $"В вольере {Name} живут: ";
 
-            foreach (AbstractAnimals item in animal)
+            foreach (AbstractAnimals item in animals)
             {
-                temp += $"{item.Species} {item.Name}, ";
+                temp += $"{item.Species} {item.Name} ";
             }
             Console.WriteLine(temp);
-            //Console.Write("В вольере живут: ");
-            //for (int i = 0; i < animals.Count; i++)
-            //{
-            //    Console.Write($"{animals[i].Species} {animals[i].Name} ");
-            //}
-            //Console.WriteLine();
         }
     
         public List<AbstractAnimals> PlusAnimal(List<AbstractAnimals> animals, AbstractAnimals animal)
@@ -79,7 +73,7 @@ namespace Zoo
             return animals;
         }
 
-        public List<AbstractAnimals> FeedAnimals (List<AbstractAnimals> animals, double foodWeight, string food)
+        public void FeedAnimals (List<AbstractAnimals> animals, double foodWeight, string food)
         {
             double freeFoodWeight = 0;
             if (food == animals[0].Food)
@@ -113,7 +107,6 @@ namespace Zoo
                 Console.WriteLine("Тип еды не подходит для обитателей данного вольера");
             }
             Console.WriteLine();
-            return animals;
         }
 
         public void MakeASoundAllAnimals (List<AbstractAnimals> animals)

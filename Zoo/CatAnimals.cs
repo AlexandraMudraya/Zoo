@@ -21,7 +21,7 @@ namespace Zoo
             Name = name;
             NeedFoodVolume = needFoodVolume;
             Age = age;
-            DoSpecialAction = doSpecialAction;
+            SpecialAction = doSpecialAction;
         }
 
         public override void Eat(string Food, double FoodVolume)
