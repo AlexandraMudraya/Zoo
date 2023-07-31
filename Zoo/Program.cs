@@ -21,11 +21,10 @@ new2Elephant = bigAviary.PlusAnimal(newElephant, elephantDoby);
 
 List<AbstractAnimals> new3Elephant;
 new3Elephant = bigAviary.MinusAnimal(new2Elephant, elephantFaina);
-//bigAviary.ListAnimals(new3Elephant);
 
-bigAviary.FeedAnimals(new3Elephant, 800, "сено");
+bigAviary.FeedAnimals(newElephant, 800, "сено");
 
-bigAviary.MakeASoundAllAnimals(new3Elephant);
+bigAviary.MakeASoundAllAnimals(newElephant);
 
 
 
