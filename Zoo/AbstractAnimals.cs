@@ -26,6 +26,8 @@ namespace Zoo
 
         public int Age { get; set; }
 
+        public string DoSpecialAction { get; set; }
+
         public void MakeASound()
         {
             Console.WriteLine($"{Name} говорит {Sound}");
@@ -33,7 +35,10 @@ namespace Zoo
 
         public abstract void Eat(string Food, double FoodVolume);
 
-        public abstract void CanDo();
+        public void CanDo()
+        {
+            Console.WriteLine($"{Name} умеет {DoSpecialAction}");
+        }
 
         public abstract void Play(string spesiesPlayer, string namePlayer);
     }

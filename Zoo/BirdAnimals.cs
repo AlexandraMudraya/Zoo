@@ -8,7 +8,7 @@ namespace Zoo
 {
     internal class BirdAnimals:AbstractAnimals
     {
-        public BirdAnimals(string species, string biome, double squareM2, string food, string predatorOrHerbivore, string sound, string name, double needFoodVolume, int age)
+        public BirdAnimals(string species, string biome, double squareM2, string food, string predatorOrHerbivore, string sound, string name, double needFoodVolume, int age, string doSpecialAction)
         {
             Species = species;
             Biome = biome;
@@ -19,6 +19,7 @@ namespace Zoo
             Name = name;
             NeedFoodVolume = needFoodVolume;
             Age = age;
+            DoSpecialAction = doSpecialAction;
         }
 
         public override void Eat(string Food, double FoodVolume)
@@ -38,11 +39,6 @@ namespace Zoo
             {
                 Console.WriteLine($"{Name} не наелся(ась)");
             }
-        }
-
-        public override void CanDo()
-        {
-            Console.WriteLine($"{Name} умеет летать");
         }
 
         public override void Play(string spesiesPlayer, string namePlayer)
