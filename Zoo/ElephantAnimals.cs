@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zoo
 {
-    public class ElephantAnimals: AbstractAnimals
+    public class ElephantAnimals: AbstractAnimals, ITrumpeter
     {
         public ElephantAnimals(string species, string biome, double squareM2, string food, string predatorOrHerbivore, string sound, string name, double needFoodVolume, int age, string doSpecialAction)
         {
@@ -52,7 +52,11 @@ namespace Zoo
                 Console.WriteLine($"{Name}  и  {namePlayer} не будут играть вместе");
             }
         }
-        
+
+        public void Trumpeting()
+        {
+            Console.WriteLine($"{Name} трубит хоботом");
+        }
     }
     
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zoo
 {
-    public abstract class AbstractAnimals
+    public abstract class AbstractAnimals : IAbstractAnimals
     {
         public string Species { get; set; }
 
@@ -35,9 +35,16 @@ namespace Zoo
 
         public abstract void Eat(string Food, double FoodVolume);
 
-        public void CanDo()
+        public void CanDo(string action)
         {
-            Console.WriteLine($"{Name} умеет {SpecialAction}");
+            if (SpecialAction == action)
+            {
+                Console.WriteLine($"{Name} умеет {SpecialAction}");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} не умеет {action}");
+            }
         }
 
         public abstract void Play(string spesiesPlayer, string namePlayer);

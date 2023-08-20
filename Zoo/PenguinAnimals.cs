@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zoo
 {
-    internal class PenguinAnimals:AbstractAnimals
+    internal class PenguinAnimals:AbstractAnimals, ISwimmer
     {
         public PenguinAnimals(string species, string biome, double squareM2, string food, string predatorOrHerbivore, string sound, string name, double needFoodVolume, int age, string doSpecialAction)
         {
@@ -51,6 +51,11 @@ namespace Zoo
             {
                 Console.WriteLine($"{Name}  и  {namePlayer} не будут играть вместе");
             }
+        }
+
+        public void Swimming()
+        {
+            Console.WriteLine($"{Name} плавает");
         }
     }
 }

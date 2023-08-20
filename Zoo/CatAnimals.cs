@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace Zoo
 {
-    public class CatAnimals:AbstractAnimals
+    public class CatAnimals : AbstractAnimals, IMeower
     {
         public CatAnimals(string species, string biome, double squareM2, string food, string predatorOrHerbivore, string sound, string name, double needFoodVolume, int age, string doSpecialAction)
         {
@@ -43,7 +43,7 @@ namespace Zoo
             }
         }
 
-        public override void Play (string spesiesPlayer, string namePlayer)
+        public override void Play(string spesiesPlayer, string namePlayer)
         {
             if (spesiesPlayer == Species)
             {
@@ -54,6 +54,10 @@ namespace Zoo
                 Console.WriteLine($"{Name}  и  {namePlayer} не будут играть вместе");
             }
         }
-    
+
+        public void Meowing()
+        {
+            Console.WriteLine($"{Name} мяукает");
+        }
     }
 }

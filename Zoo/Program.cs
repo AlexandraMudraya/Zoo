@@ -51,3 +51,5 @@ new2Penguin = penguinAviary.MinusAnimal(newPenguin, penguin[0]);
 penguinAviary.FeedAnimals(new2Penguin, 1.15, "рыба");
 
 penguinAviary.MakeASoundAllAnimals(new2Penguin);
+
+penguinSonya.Swimming();

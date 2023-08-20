@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zoo
 {
-    internal class BearAnimals:AbstractAnimals
+    internal class BearAnimals:AbstractAnimals, IGrowler
     {
         public BearAnimals(string species, string biome, double squareM2, string food, string predatorOrHerbivore, string sound, string name, double needFoodVolume, int age, string doSpecialAction)
         {
@@ -40,7 +40,7 @@ namespace Zoo
                 Console.WriteLine($"{Name} не наелся(ась)");
             }
         }
-           
+
         public override void Play(string spesiesPlayer, string namePlayer)
         {
             if (spesiesPlayer == Species)
@@ -51,6 +51,11 @@ namespace Zoo
             {
                 Console.WriteLine($"{Name}  и  {namePlayer} не будут играть вместе");
             }
+        }
+
+        public void Growling()
+        {
+            Console.WriteLine($"{Name} рычит");
         }
     }
 }
